@@ -2,53 +2,52 @@
  * @author hk1k
  * @module defaultRules
  */
-
 module.exports = function(webot) {
 
-    webot.set('/^(hi|hello|hey|ƒ„∫√|ƒ˙∫√)([\.!£°°£]*)/i', function(){
+    webot.set('/^(hi|hello|hey|‰Ω†Â•Ω|ÊÇ®Â•Ω)([\.!ÔºÅ„ÄÇ]*)/i', function(){
       var now = new Date();
       var hour = now.getHours();
-      var timeSecene = (hour < 12) ? '‘Á…œ' : ((hour < 18) ? 'œ¬ŒÁ' : 'ÕÌ…œ');
+      var timeSecene = (hour < 12) ? 'Êó©‰∏ä' : ((hour < 18) ? '‰∏ãÂçà' : 'Êôö‰∏ä');
       if(Math.random() > 0.5){
-        return ['ƒ„∫√','ΩÒÃÏ–ƒ«È≤ª¥Ì!','”– ≤√¥ø…“‘∞ÔµΩƒ„µƒ¬£ø','”– ≤√¥ ¬£ø'];
+        return ['‰Ω†Â•Ω','‰ªäÂ§©ÂøÉÊÉÖ‰∏çÈîô!','Êúâ‰ªÄ‰πàÂèØ‰ª•Â∏ÆÂà∞‰Ω†ÁöÑÂêóÔºü','Êúâ‰ªÄ‰πà‰∫ãÔºü'];
       }
       if(hour >= 22 || hour < 2){
-        return '’‚√¥ÕÌ¡Àªπ≤ªÀØ?';
+        return 'Ëøô‰πàÊôö‰∫ÜËøò‰∏çÁù°?';
       }else if(hour < 5){
-        return '∫√‘Á∞°£¨ÃÏªπ√ª¡¡ƒÿ£°';
+        return 'Â•ΩÊó©ÂïäÔºåÂ§©ËøòÊ≤°‰∫ÆÂë¢ÔºÅ';
       }else{
-        return timeSecene + '∫√';
+        return timeSecene + 'Â•Ω';
       }
     });
 
-    webot.set('/^(∑«≥£|∫‹|∫‹ «)*(–ª|–ª–ª|∏––ª|–ª¡À|–ª–ªƒ„|–ªø©|–ª–ªø©|–ª–ª¿≤|–ª¿≤|–ª–ª¿≠|–ª¿≠|ƒ„’Ê∞Ù)([\.!£°°£]*)/', ['ƒ„’ÊøÕ∆¯', '±¬øÕ∆¯', '∫‹∏ﬂ–Àƒ„ª·’‚√¥Àµ']);
+    webot.set('/^(ÈùûÂ∏∏|Âæà|ÂæàÊòØ)*(Ë∞¢|Ë∞¢Ë∞¢|ÊÑüË∞¢|Ë∞¢‰∫Ü|Ë∞¢Ë∞¢‰Ω†|Ë∞¢ÂíØ|Ë∞¢Ë∞¢ÂíØ|Ë∞¢Ë∞¢Âï¶|Ë∞¢Âï¶|Ë∞¢Ë∞¢Êãâ|Ë∞¢Êãâ|‰Ω†ÁúüÊ£í)([\.!ÔºÅ„ÄÇ]*)/', ['‰Ω†ÁúüÂÆ¢Ê∞î', 'Áî≠ÂÆ¢Ê∞î', 'ÂæàÈ´òÂÖ¥‰Ω†‰ºöËøô‰πàËØ¥']);
 
-    webot.set(['/^(œ÷‘⁄)*(º∏µ„| ≤√¥ ±º‰|µƒ* ±º‰)([¡À¿≤¿≠]*)([?|£ø]*)$/', 'now'], function(){
+    webot.set(['/^(Áé∞Âú®)*(Âá†ÁÇπ|‰ªÄ‰πàÊó∂Èó¥|ÁöÑ*Êó∂Èó¥)([‰∫ÜÂï¶Êãâ]*)([?|Ôºü]*)$/', 'now'], function(){
       var now = new Date();
       var hour = now.getHours();
       var minute = now.getMinutes();
-      return 'œ÷‘⁄ «' + hour + 'µ„' + minute + '∑÷';
+      return 'Áé∞Âú®ÊòØ' + hour + 'ÁÇπ' + minute + 'ÂàÜ';
     });
     
-    ['/^(ΩÒÃÏ)*(–«∆⁄º∏)([¡À¿≤¿≠]*)([?|£ø]*)$/', '–«∆⁄', 'date'].forEach(function(item){
+    ['/^(‰ªäÂ§©)*(ÊòüÊúüÂá†)([‰∫ÜÂï¶Êãâ]*)([?|Ôºü]*)$/', 'ÊòüÊúü', 'date'].forEach(function(item){
         webot.set(item, function(){
           var now = new Date();
           var day = now.getDay();
-          var arr = ['“ª', '∂˛', '»˝', 'Àƒ', 'ŒÂ', '¡˘', 'ÃÏ'];
-          return 'ΩÒÃÏ–«∆⁄' + arr[day - 1];
+          var arr = ['‰∏Ä', '‰∫å', '‰∏â', 'Âõõ', '‰∫î', 'ÂÖ≠', 'Â§©'];
+          return '‰ªäÂ§©ÊòüÊúü' + arr[day - 1];
         });
     });
 
-    webot.set('/^(news|–¬Œ≈)$/i', function(){
-      return '’˝‘⁄≤È’“◊Ó–¬–¬Œ≈';
+    webot.set('/^(news|Êñ∞Èóª)$/i', function(){
+      return 'Ê≠£Âú®Êü•ÊâæÊúÄÊñ∞Êñ∞Èóª';
     });
 
-    webot.set('/^(kfc|øœµ¬ª˘)$/i', function(){
-      return '’˝‘⁄≤È’“øœµ¬ª˘';
+    webot.set('/^(kfc|ËÇØÂæ∑Âü∫)$/i', function(){
+      return 'Ê≠£Âú®Êü•ÊâæËÇØÂæ∑Âü∫';
     });
 
-    webot.set('/^(M|¬Ûµ±¿Õ)$/i', function(){
-      return '’˝‘⁄≤È’“¬Ûµ±¿Õ';
+    webot.set('/^(M|È∫¶ÂΩìÂä≥)$/i', function(){
+      return 'Ê≠£Âú®Êü•ÊâæÈ∫¶ÂΩìÂä≥';
     });
 
 }
