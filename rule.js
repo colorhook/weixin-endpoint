@@ -3,19 +3,25 @@
  * @module defaultRules
  */
 module.exports = function(webot) {
+    
+    weobot.set('32like', ［'请记住我，这就是我的马甲.', '点32个赞', '👍']);
+    
+    webot.set('/^你?是?(谁|什么)*([?|？]*)/', ["我是智慧与美丽的化身", "请叫我天使", "我是风骚的小秘书", "假装不在"]);
 
-    webot.set('/^你是(谁|什么)*([?|？]*)/', ["我是智慧与美丽的化身", "请叫我天使", "我是风骚的小秘书", "假装不在"]);
-
-    webot.set('/^(你个)*(sb|二货|神经病|深井冰|操|草|日|屮|艹)([\.!！。]*)$/i', ["你个傻X", "不许骂人", "神经病", "深井冰"]);
+    webot.set('/^(你个|我)*(sb|二货|神经|(神经|蛇精)病|深井冰|操|草|日|屮|艹)([\.!！。]*)$/i', ["你个傻X", "不许骂人", "你是神经病啊", "深井冰"]);
 
     webot.set('为人民服务', ["你是活雷锋"]);
 
     webot.set('毛主席万岁', '万岁万岁万万岁');
 
-    webot.set('/(nb|厉害|great|牛逼)([\.!！。]*)$/', ['谢谢夸奖', '彼此彼此', '还需要努力']);
+    webot.set('/你?好?(nb|厉害|赞|great|牛逼)([\.!！。]*)$/', ['谢谢夸奖', '彼此彼此', '还需要努力']);
 
-    webot.set('/^(哈哈|呵呵|haha|hehe|ha|he)([\.!！。]*)$/i', ['笑而不语', '干嘛傻笑','😊']);
-
+    webot.set('/^(哈哈|呵呵|haha|hehe|ha|he)([\.!！。]*)$/i', ['笑而不语', '干嘛傻笑','😊', '😂']);
+    
+    webot.set('/^我?好?(伤心|难过|生气|气愤|愤怒|sad))', ['别难过', '开心点', '😢']);
+    
+    webot.set('/^我?好?(开心|高兴|快乐|happy))', ['举杯', '喝一杯', '唱首歌', '😄', '😊']);
+    
     webot.set('/你(.*)傻/', ['一点点', '没你聪明', '我哪里错了？']);
 
     webot.set('/^(百度|baidu)$/i', '你要搜什么?');
@@ -61,7 +67,17 @@ module.exports = function(webot) {
     });
 
     webot.set('/^(非常|很|很是)*(谢|谢谢|感谢|谢了|谢谢你|谢咯|谢谢咯|谢谢啦|谢啦|谢谢拉|谢拉|你真棒)([\.!！。]*)/', ['你真客气', '甭客气', '很高兴你会这么说']);
-
+    
+    
+    webot.set('/^(日期|date)$/', function(){
+      var now = new Date();
+      var year = now.getFullYear();
+      var month = now.getMonth();
+      var date = now.getDate();
+      var str = '今天是' + year + '年' + (month + 1) + '月' + date + '日';
+      return str;
+    });
+    
     ['/^(现在)*(几点|什么时间|的*时间)([了啦拉]*)([?|？]*)$/', 'now', 'time'].forEach(function(item){
       webot.set(item, function(){
         var now = new Date();
@@ -78,7 +94,7 @@ module.exports = function(webot) {
       });
     });
 
-    ['/^(今天)*(星期几)([了啦拉]*)([?|？]*)$/', '星期', 'date'].forEach(function(item){
+    ['/^(今天)*(星期几)([了啦拉]*)([?|？]*)$/', '星期', 'day'].forEach(function(item){
         webot.set(item, function(){
           var now = new Date();
           var day = now.getDay();
