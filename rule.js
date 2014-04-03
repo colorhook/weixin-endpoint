@@ -8,7 +8,7 @@ module.exports = function(webot) {
 
     webot.set('/^(你个)*(sb|二货|神经病|深井冰|操|草|日|屮|艹)([\.!！。]*)$/i', ["你个傻X", "不许骂人", "神经病", "深井冰"]);
 
-    webot.set('为人民服务/', ["你是活雷锋"]);
+    webot.set('为人民服务', ["你是活雷锋"]);
 
     webot.set('毛主席万岁', '万岁万岁万万岁');
 
@@ -22,9 +22,9 @@ module.exports = function(webot) {
 
     webot.set('/^(腾讯|qq)/i', '你想打企鹅🐧吗?');
 
-    webot.set('/^(alibaba|阿里|阿里巴巴)$/i', ［'芝麻开门', '告诉我强盗在哪里']);
+    webot.set('/^(alibaba|阿里|阿里巴巴)$/i',['芝麻开门', '告诉我强盗在哪里']);
 
-    webot.set('/(睡觉|晚安)', ['晚安', '早点休息', '回见']);
+    webot.set('/(睡觉|晚安)/', ['晚安', '早点休息', '回见']);
 
     webot.set('起床', '再睡一会嘛');
 
@@ -72,7 +72,7 @@ module.exports = function(webot) {
     });
 
 
-    ['/^(今天)*天气(怎么样|如何)*)([?|？]*)$/', 'weather'].forEach(function(item){
+    ['/^(今天)?天气(怎么样|如何)?([?|？]*)$/i', 'weather'].forEach(function(item){
       webot.set(item, function(){
         return '我想天气不错吧。每天都是好天气!';
       });
@@ -149,9 +149,9 @@ module.exports = function(webot) {
 
     ['韩剧', '韩片', '韩国'].forEach(function(item){
       webot.set(item, ['这里没有欧巴', '来份泡菜怎么样']);
-    })；
+    });
 
-    ['日本', '日本人', '日系'].forEach(function(){
+    ['日本', '日本人', '日系'].forEach(function(item){
       webot.set(item, '请不要输入违禁词');
     });
 
