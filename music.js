@@ -7,8 +7,8 @@ var request = require('request');
 
 module.exports = function(webot) {
 
-  var reg_music_cmd = /^(音乐|电台|radio|music|m\s+)\s*(.+)/i;
-    
+  var reg_music_cmd = /^(歌曲|听?歌|音乐|电台|radio|music|m\s+)\s*(.+)/i;
+
   function do_search(info, next) {
     var q = info.text.match(reg_music_cmd)[3] || "";
     q = q.trim();

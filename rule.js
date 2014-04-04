@@ -22,7 +22,7 @@ module.exports = function(webot) {
 
   webot.set('/^[吃饭?\s]+/', ['你是猪啊，就知道吃', '去哪里吃呀']);
 
-  webot.set('/[臭?屁\s]+/', '你是傻鸟，鉴定完毕');
+  webot.set('/臭?[屁]+/', '你是傻鸟，鉴定完毕');
   
   webot.set('/[请说中文]+/', '我只会说中文');
 
@@ -177,9 +177,6 @@ module.exports = function(webot) {
     return ['你今天的收益有多少', '转入10000压压惊'];
   });
 
-  ['歌曲', '听歌', '/music/i', '音乐'].forEach(function(item){
-    webot.set(item, '打开虾米听音乐');
-  });
 
   ['/^看?电影$/', '电影院', '电影票', '新片', '/大片$/', '上映', '好莱坞', '动画片', '/^3d$/i'].forEach(function(item){
     webot.set(item, ['使用豆瓣电影查找最近上映的电影吧', '你去买票，记得用支付宝付款']);
