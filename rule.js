@@ -8,7 +8,7 @@ module.exports = function(webot) {
     
   webot.set('/^32like$/i', ['请记住我，这就是我的马甲', '点32个赞', '👍']);
 
-  webot.set('/^(what.+ the fuck/i', '请说国语 请注意文明用语');
+  webot.set('/^what.+ the fuck/i', '请说国语 请注意文明用语');
   
   webot.set('/^stupid/i', '请说国语 你很聪明吗');
 
