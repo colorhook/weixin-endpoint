@@ -289,7 +289,10 @@ module.exports = function(webot) {
 
     webot.afterReply(function(info, next) {
       if(info.err == 404){
-        do_search(info, next, info.text);
+        do_search(info, function(e, ret){
+          info.reply = ret;
+          next();
+        }, info.text);
       }else{
         next();
       }
