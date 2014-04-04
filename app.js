@@ -3,9 +3,8 @@ var webot = require('weixin-robot');
 
 var app = express();
 
-delete require.cache[require.resolve('./rule')];
+//delete require.cache[require.resolve('./rule')];
 webot.loads('./rule');
-
 
 
 webot.set('subscribe', {
