@@ -240,8 +240,10 @@ module.exports = function(webot) {
 
     var reg_search_cmd = /^(百度|baidu)(一下|搜索|search)?\s*(.+)/i;
 
-    function do_search(info, next) {
-      var q = info.text.match(reg_search_cmd)[3];
+    function do_search(info, next, q) {
+      if(!q){
+         q = info.text.match(reg_search_cmd)[3];
+      }
       request('http://www.baidu.com/s?wd=' + encodeURIComponent(q), function(err, response, res) {
         if (err || !res) return next(null, '现在暂时无法搜索，待会儿再来好吗？');
 
@@ -287,7 +289,7 @@ module.exports = function(webot) {
 
     webot.afterReply(function(info, next) {
       if(info.err == 404){
-        info.reply = '不懂: ' + info.text;
+        do_search(info, next, info.text);
       }
       next();
     });
