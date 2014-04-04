@@ -13,7 +13,7 @@ module.exports = function(webot) {
     next(null, {
       title: '豆瓣电台',
       description: '你可以用“红心”、“垃圾桶”或者“跳过” 告诉豆瓣FM你的喜好。',
-      picurl: 'http://m.alicdn.com/x/049e3970-bbe5-11e3-8628-f9af6ba4338d.jpg',
+      picurl: 'http://m.alicdn.com/x/639438d0-bbe5-11e3-a0d0-7d83b42879dc.jpg',
       url: 'http://douban.fm'
     });
   }
