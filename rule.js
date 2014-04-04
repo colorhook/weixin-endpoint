@@ -243,13 +243,13 @@ module.exports = function(webot) {
     function do_search(info, next) {
       request('http://www.baidu.com/s', {
         wd: info.param.q
-      }, function(err, res) {
+      }, function(err, response, res) {
         if (err || !res) return next(null, '现在暂时无法搜索，待会儿再来好吗？');
 
         // 为了兼容不同编码，res 默认是一个 Buffer
         // 调用 toString 方法，转换为 utf-8 的字符串
         res = res.toString();
-
+        console.log(res);
         var reg_h3t = /<h3 class="t">\s*(<a.*?>.*?<\/a>).*?<\/h3>/gi;
         var links = [];
         var i = 1;
@@ -286,6 +286,7 @@ module.exports = function(webot) {
       },
       'handler': do_search
     });
+    
 
     /*
     webot.afterReply(function(err, info, next) {
