@@ -30,6 +30,8 @@ module.exports = function(webot) {
 
     webot.set('没事', '你真无聊');
 
+    webot.set('/^(干嘛|怎么了|咋啦|咋了|怎么啦|what|有?什么事)/', '没事，嘻嘻');
+
     webot.set('帅哥', '我在呢');
 
     webot.set('美女', '什么事？');
@@ -204,7 +206,7 @@ module.exports = function(webot) {
     ['小日本', '日本', '日本人', '日系'].forEach(function(item){
       webot.set(item, '请不要输入违禁词');
     });
-
+    
     
     webto.afterReply(function error(err, info, next) {
       if(info.err == 404){
