@@ -208,7 +208,7 @@ module.exports = function(webot) {
     });
     
     
-    webto.afterReply(function error(err, info, next) {
+    webot.afterReply(function error(err, info, next) {
       if(info.err == 404){
         info.replay = '不懂: ' + info.text;
       }
