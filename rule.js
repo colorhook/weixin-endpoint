@@ -284,13 +284,13 @@ module.exports = function(webot) {
     });
     
 
-    /*
+
     webot.afterReply(function(err, info, next) {
       if(info.err == 404){
         info.reply = '不懂: ' + info.text;
       }
       next();
     });
-    */
+
 
 }
