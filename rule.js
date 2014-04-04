@@ -241,9 +241,7 @@ module.exports = function(webot) {
     var reg_search_cmd = /^(百度|baidu)(一下|搜索|search)?\s*(.+)/i;
 
     function do_search(info, next) {
-      request('http://www.baidu.com/s', {
-        wd: info.param.q
-      }, function(err, response, res) {
+      request('http://www.baidu.com/s?wd=' + encodeURIComponent(info.param.q), function(err, response, res) {
         if (err || !res) return next(null, '现在暂时无法搜索，待会儿再来好吗？');
 
         // 为了兼容不同编码，res 默认是一个 Buffer
@@ -287,7 +285,9 @@ module.exports = function(webot) {
       'handler': do_search
     });
     
-
+   /* do_search({param:{q:'hello'}}, function(e, msg){
+        console.log(msg);
+    });*/
     /*
     webot.afterReply(function(err, info, next) {
       if(info.err == 404){
