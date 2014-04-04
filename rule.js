@@ -205,9 +205,12 @@ module.exports = function(webot) {
       webot.set(item, '请不要输入违禁词');
     });
 
-
-    webot.codeReplies['404'] = function(info){
-      return "不懂:" + info.text;
-    }
+    
+    webto.afterReply(function error(err, info, next) {
+      if(info.err == 404){
+        info.replay = '不懂: ' + info.text;
+      }
+      return next();
+    });
 
 }
